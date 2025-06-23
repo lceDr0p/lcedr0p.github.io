@@ -60,6 +60,44 @@ a {
   border-radius: 4px;
 }
 
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.burger span {
+  width: 25px;
+  height: 3px;
+  background: #1a1a1a;
+  display: block;
+  border-radius: 3px;
+}
+
+/* Show burger + hide nav links on mobile */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    background: #fff;
+    width: 200px;
+    padding: 1rem;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
 /* Hero Section */
 .hero-section {
   min-height: 100vh;
@@ -668,15 +706,16 @@ section h2 {
 
 .modal-content {
   background: #ffffff;
-  padding: 2.5rem;
+  padding: 2rem 1rem;
   border-radius: 12px;
-  max-width: 500px;
-  width: 90%;
+  max-width: 90vw;
+  width: 100%;
   position: relative;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
   text-align: left;
   color: #1a1a1a;
   font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
 }
 
 .modal-content h3 {
@@ -719,6 +758,13 @@ section h2 {
 
 .close-btn:hover {
   color: #000;
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    font-size: 0.95rem;
+    padding: 1.5rem 1rem;
+  }
 }
 
 @keyframes fadeInModal {
