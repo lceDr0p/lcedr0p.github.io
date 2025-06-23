@@ -26,6 +26,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: 1rem 20rem;
   background-color: #f5f5f5;
   border-bottom: 1px solid #e0e0e0;
@@ -35,16 +36,20 @@ a {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* When scrolled */
 .navbar.scrolled {
   background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .nav-links {
   list-style: none;
-  display: flex;
   gap: 1.5rem;
+}
+
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex;
+  }
 }
 
 .nav-links a {
@@ -63,8 +68,8 @@ a {
 .burger {
   display: none;
   flex-direction: column;
-  cursor: pointer;
   gap: 6px;
+  cursor: pointer;
 }
 
 .burger span {
@@ -75,25 +80,26 @@ a {
   border-radius: 3px;
 }
 
-/* Show burger + hide nav links on mobile */
+/* MOBILE */
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem 1.5rem;
   }
-  
+
   .burger {
     display: flex;
   }
 
   .nav-links {
+    display: none;
     position: absolute;
     top: 100%;
-    right: 0;
+    right: 1.5rem;
     flex-direction: column;
     background: #fff;
     width: 200px;
     padding: 1rem;
-    display: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   }
 
   .nav-links.active {
