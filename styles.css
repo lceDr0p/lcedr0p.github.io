@@ -216,11 +216,11 @@ a {
 
 .about-highlight {
   flex: 1 1 400px;
-  background-color: #1a1a1a;
-  color: #fff;
+  background-color: #fafafa;
+  color: #1a1a1a;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.1);
   font-size: 1.1rem;
   text-align: center;
   animation: fadeInLeft 1s ease 0.3s both;
@@ -237,7 +237,7 @@ a {
   background-image: url('Images/testbg.png');
   background-color: #fafafa;
   padding: 6rem 2rem;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: auto;
 }
 
@@ -279,20 +279,21 @@ a {
 }
 
 .patterned-content h3 {
+  color: #fff;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 .patterned-content p {
   font-size: 1.05rem;
-  color: #444;
+  color: #999;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
 .patterned-content .modal-btn {
-  background: #1a1a1a;
-  color: #fff;
+  background: #fafafa;
+  color: #1a1a1a;
   padding: 0.65rem 1.5rem;
   border: none;
   border-radius: 6px;
@@ -301,7 +302,7 @@ a {
 }
 
 .patterned-content .modal-btn:hover {
-  background: #333;
+  background: #9a9a9a;
 }
 
 .service-card {
@@ -394,6 +395,10 @@ section h2 {
   background-color: #1a1a1a;
   padding: 6rem 2rem;
   text-align: center;
+}
+
+.gallery-section h2 {
+  color: #fff
 }
 
 .gallery-carousel {
@@ -543,7 +548,7 @@ section h2 {
 }
 
 #testimonial-slider .splide__slide {
-  color: #999;
+  color: #1a1a1a;
   text-align: center;
   padding: 2rem;
   font-size: 1.2rem;
@@ -750,6 +755,41 @@ section h2 {
 .close-btn:hover {
   color: #000;
 }
+
+.section-divider-black {
+  width: 60px;
+  height: 4px;
+  background-color: #1a1a1a;
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+
+.section-divider-white {
+  width: 60px;
+  height: 4px;
+  background-color: #fafafa;
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+
+.grey-frame {
+  background-color: #1a1a1a; 
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+.white-frame {
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+
 
 
 @media (min-width: 769px) {
