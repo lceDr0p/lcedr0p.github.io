@@ -8,6 +8,10 @@
   --container-max: 1300px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +23,6 @@ body {
   background-color: #ffffff;
   color: #1a1a1a;
   line-height: 1.6;
-  background-attachment: fixed;
 }
 
 a {
@@ -95,10 +98,22 @@ a {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-color: #fafafa;
-  background-image: url('Images/testbg.png');
+  overflow: hidden;
   padding: 3rem 2rem;
 }
+
+.parallax-bg {
+  background-image: url('Images/testbg.png');
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150%; /* taller for scrolling effect */
+  z-index: -1;
+}
+
 
 .hero-content {
   display: flex;
@@ -187,9 +202,15 @@ a {
 }
 
 /* About Section */
+.about-wrapper {
+  background-color: #fff;
+  width: 100%;
+}
+
 .about-section {
   background-image: url('Images/testbg.png');
   background-color: #1a1a1a;
+  background-attachment: scroll;
   padding: 6rem 2rem;
 }
 

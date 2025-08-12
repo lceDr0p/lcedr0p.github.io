@@ -35,6 +35,7 @@
 
   <!-- Hero Section -->
   <section id="hero" class="hero-section fade-in">
+    <div class="parallax-bg"></div>
     <div class="hero-content">
       <div class="hero-text">
         <h1>Your Signature Style Starts Here</h1>
@@ -55,8 +56,9 @@
 
 
   <!-- About Section -->
-  <section id="about" class="about-section fade-in">
-    <div class="about-container">
+  <div class="about-wrapper">
+    <section id="about" class="about-section">
+    <div class="about-container fade-in">
       <div class="about-text">
         <h2>Our Story</h2>
         <div class="section-divider-white"></div>
@@ -71,10 +73,11 @@
       </div>
     </div>
   </section>
+  </div>
 
 
   <!-- Services Section -->
-  <div class="services-wrapper">
+  <div class="services-wrapper fade-in">
   <section id="services" class="services-section">
     <header class="services-header">
       <h2>Our Services</h2>
@@ -156,10 +159,10 @@
 </div>
 
   <!-- Gallery Section -->
-  <section id="gallery" class="gallery-section fade-in">
+  <section id="gallery" class="gallery-section">
     <h2>Gallery</h2>
-    <div class="section-divider-white"></div>
-      <div class="splide" id="gallery-slider">
+    <div class="section-divider-white fade-in"></div>
+      <div class="splide fade-in" id="gallery-slider">
           <div class="splide__track">
           <ul class="splide__list">
               <li class="splide__slide"><img src="Images/Top1.png" alt="Classic Fade" /></li>
@@ -253,7 +256,7 @@
     </div>
   </footer>
 
-  <footer class="site-footer fade-in">
+  <footer class="site-footer">
     <div class="footer-top">
       <img src="Images/Logo1_White.png" alt="TheUndercut Logo" class="footer-logo" />
       <ul class="footer-nav">
@@ -321,12 +324,36 @@
 
 <!-- Main script (runs after DOM is ready; Splide is guaranteed available) -->
 <script defer>
+let scrollTarget = 0;
+let scrollCurrent = 0;
+const scrollEase = 0.08; // lower = smoother
+const parallaxFactor = 0.4;
+
+// Inertia scroll loop
+function smoothScrollLoop() {
+  scrollCurrent += (scrollTarget - scrollCurrent) * scrollEase;
+
+  // Parallax effect with inertia
+  const parallaxBg = document.querySelector('.parallax-bg');
+  if (parallaxBg) {
+    parallaxBg.style.transform = `translateY(${scrollCurrent * parallaxFactor}px)`;
+  }
+
+  requestAnimationFrame(smoothScrollLoop);
+}
+
+window.addEventListener('scroll', () => {
+  scrollTarget = window.scrollY;
+});
+
 document.addEventListener('DOMContentLoaded', () => {
-  // Smooth Scroll (does not interfere with Splide)
+  smoothScrollLoop(); // start smooth scroll loop
+
+  // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
-      if (!href || href === '#') return; // ignore dummy links
+      if (!href || href === '#') return;
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
@@ -338,8 +365,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Nav Background on Scroll
   const navbar = document.querySelector('.navbar');
   if (navbar) {
-    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 50);
-    onScroll(); // set initial state
+    const onScroll = () => navbar.classList.toggle('scrolled', scrollTarget > 50);
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
@@ -352,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Element Fade-In on Scroll (adds .appear to .fade-in)
+  // Fade-in elements on scroll
   const fadeIns = document.querySelectorAll('.fade-in');
   if (fadeIns.length) {
     const fadeIO = new IntersectionObserver((entries, obs) => {
@@ -365,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeIns.forEach(el => fadeIO.observe(el));
   }
 
-  // In-view watcher (adds .in-view to cards/cta/team/etc.)
+  // In-view watcher
   const watchTargets = document.querySelectorAll('.inview-watch, .service-card, .services-cta, .team-member');
   if (watchTargets.length) {
     const inviewIO = new IntersectionObserver((entries, obs) => {
@@ -378,7 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
     watchTargets.forEach(el => inviewIO.observe(el));
   }
 
-  // Basic drag-to-scroll slider (for .gallery-carousel)
+  // Drag-to-scroll gallery
   const slider = document.querySelector('.gallery-carousel');
   if (slider) {
     let isDown = false, startX = 0, scrollLeft = 0;
@@ -406,14 +433,12 @@ document.addEventListener('DOMContentLoaded', () => {
     slider.addEventListener('mouseleave', onLeaveUp);
     slider.addEventListener('mouseup', onLeaveUp);
     slider.addEventListener('mousemove', onMove);
-
-    // Touch support
     slider.addEventListener('touchstart', onDown, { passive: true });
     slider.addEventListener('touchend', onLeaveUp);
     slider.addEventListener('touchmove', onMove, { passive: false });
   }
 
-  // Modal trigger and close logic
+  // Modal logic
   document.querySelectorAll('.modal-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const modalId = btn.dataset.modal;
@@ -433,11 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // =========================
-  // Splide initializations
-  // =========================
-
-  // Gallery
+  // Splide sliders
   if (document.getElementById('gallery-slider')) {
     new Splide('#gallery-slider', {
       type: 'loop',
@@ -456,7 +477,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }).mount();
   }
 
-  // Testimonials
   if (document.getElementById('testimonial-slider')) {
     new Splide('#testimonial-slider', {
       type: 'fade',
@@ -468,7 +488,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }).mount();
   }
 
-  // Hero
   if (document.getElementById('hero-slider')) {
     new Splide('#hero-slider', {
       type: 'fade',
@@ -481,6 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 </script>
+
 
 
 </body>
