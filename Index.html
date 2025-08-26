@@ -33,16 +33,18 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!-- logo begin -->
-                        <div id="logo-center">
-                            <a href="#">
-                                <img class="logo-main" src="images/logo.png" alt="" >
-                                <img class="logo-mobile" src="images/logo-mobile.png" alt="" >
-                            </a>
-                        </div>
+                        
                         <!-- logo close -->
                         <div class="de-flex sm-pt10">
                             <div class="de-flex-col">
                                 <div class="de-flex-col">
+                                    <div id="logo-center">
+                                        <a href="#">
+                                            <img class="logo-main" src="images/logo-mobile.png" alt="" >
+                                            <img class="logo-mobile" src="images/logo-mobile.png" alt="" >
+                                        </a>
+                                    </div>
+
                                     <!-- logo begin -->
                                     <div id="logo">
                                         <a href="#">
@@ -56,9 +58,9 @@
                             <div class="de-flex-col header-col-mid">
                                 <ul id="mainmenu" class="s2">
                                     <li><a class="menu-item" href="Index.html">Home</a></li>
-                                    <li><a class="menu-item" href="#">Gallery</a></li>
-                                    <li><a class="menu-item" href="#">Services</a></li>
-                                    <li><a class="menu-item" href="#">Team</a></li>
+                                    <li><a class="menu-item" href="#gallery">Gallery</a></li>
+                                    <li><a class="menu-item" href="#services">Services</a></li>
+                                    <li><a class="menu-item" href="#team">Team</a></li>
                                     <li><a class="menu-item" href="#">Book Now</a></li>
                                 </ul>
                             </div>
@@ -93,12 +95,12 @@
                                             <div class="spacer-double"></div>
 
                                             <div class="col-lg-12">
-                                                <h1>The Gentlemen's Choise</h1>                                                
+                                                <h1>The Gentlemen's Choice</h1>                                                
                                             </div>
 
                                             <div class="col-lg-6 offset-lg-3">
-                                                <p class="lead">Step into The Undercut, where tradition meets precision. Book your fresh fade, beard trim, or full grooming experience today.</p>
-                                                <a class="btn-main" href="services.html">Our Services</a>
+                                                <p class="lead">Below ground, a cut above. Book your fresh fade, beard trim, or full grooming experience today.</p>
+                                                <a class="btn-main" href="#services">Our Services</a>
                                             </div>
                                         </div>                                        
                                     </div>
@@ -115,7 +117,6 @@
             </section>
 
             <section aria-label="section" class="no-top no-bottom">
-
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12" data-jarallax-element="-50">
@@ -167,8 +168,7 @@
                                     <img src="images/gallery/gallery-item-4.jpg" class="lazy img-fluid" alt="">
                                 </a>
                             </div>
-                        </div>
-                                                
+                        </div>               
                     </div>
                 </div>
             </section>
@@ -181,8 +181,8 @@
                         <div class="col-lg-6" data-jarallax-element="-30">
                             <img src="images/misc/man-2.png" class="img-fluid wow fadeInRight" alt="">
                         </div>
-                        <div class="col-lg-6" data-jarallax-element="-60">
-                            <h2 class="wow fadeInRight" data-wow-delay=".3s">We’ll  Crafting <span class="id-color">Confidence</span> Through Sharp Style</h2>
+                        <div class="col-lg-6" data-jarallax-element="-60" id="book">
+                            <h2 class="wow fadeInRight" data-wow-delay=".3s">We’re  Crafting <span class="id-color">Confidence</span> Through Sharp Style</h2>
                             <p class="wow fadeInRight" data-wow-delay=".4s">We take pride in providing top-notch grooming services that blend classic techniques with modern trends. Step into our warm and inviting space, where you'll find a team of skilled barbers dedicated to enhancing your style and confidence.</p>
                             <a href="#" class="btn-main wow fadeInRight" data-wow-delay=".5s">Book Now</a>
                         </div>
@@ -194,7 +194,7 @@
             <section aria-label="section" class="no-top">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-12 text-center">
+                        <div class="col-lg-12 text-center" id="services">
                             <h2 class="wow fadeIn">Our Services</h2>
                             <div class="de-separator"></div>
                         </div>
@@ -248,7 +248,33 @@
                     </div>
                     <div class="spacer-single"></div>
                     <div class="text-center">
-                        <a href="#" class="btn-main">All Services &amp; Prices</a>
+                        <a href="#" class="btn-main" data-mdb-toggle="modal" data-mdb-target="#servicesModal">All Services &amp; Prices</a>
+                    </div>
+                </div>
+                <div class="spacer-triple"></div>
+                <div class="spacer-double"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center" id="team">
+                            <h2 class="wow fadeIn">Meet Our Barbers</h2>
+                            <div class="de-separator"></div>
+                        </div>
+
+                        <div class="col-lg-4 text-center" data-jarallax-element="-20"></div>
+
+                        <div class="col-lg-4 text-center" data-jarallax-element="-20">
+                            <div class="de-box-a">
+                                <div class="d-image">
+                                    <img src="images/team/5.png" alt="">
+                                </div>
+                                <div class="d-deco-3"></div>
+                                <div class="d-deco-2"></div>
+                            </div>
+                            <div class="spacer-20"></div>
+                            <h4>Rochdi</h4>
+                        </div>
+
+                        <div class="col-lg-4 text-center" data-jarallax-element="-20"></div>
                     </div>
                 </div>
             </section>
@@ -260,19 +286,18 @@
                     <div class="row gx-5">
                         <div class="col-lg-6 text-center" data-jarallax-element="-50">
                             <div class="d-sch-table">
-                                <h2 class="wow fadeIn">We're Open</h2>
+                                <h2 class="wow fadeIn">ســـــاعات العــــمل</h2>
+                                <h2 class="wow fadeIn">Opening Hours</h2>
                                 <div class="de-separator"></div>
                                 <div class="d-col">
-                                    <div class="d-title">Mon - Thu</div>
-                                    <div class="d-content id-color">7:30AM - 6:30PM</div>
+                                    <div class="d-title">السبت – الخميس</div>
+                                    <div class="d-title">Saturday – Thursday</div>
+                                    <div class="d-content id-color">7:30 AM - 6:30 PM</div>
                                 </div>
                                 <div class="d-col">
+                                    <div class="d-title">يوم الجمعة</div>
                                     <div class="d-title">Friday</div>
-                                    <div class="d-content id-color">8:30AM - 8:30PM</div>
-                                </div>
-                                <div class="d-col">
-                                    <div class="d-title">Sat - Sun</div>
-                                    <div class="d-content id-color">9:30AM - 5:30PM</div>
+                                    <div class="d-content id-color">3:00 PM - MIDNIGHT </div>
                                 </div>
                                 <div class="d-deco"></div>
                             </div>
@@ -284,15 +309,15 @@
                                 <div class="de-separator"></div>
                                 <div class="d-col">
                                     <div class="d-title">Address</div>
-                                    <div class="d-content id-color">100 Mainstreet Center, NY</div>
+                                    <div class="d-content id-color">Souq Waqif Underpass, Building 1, Street 800, Zone 3, Doha</div>
                                 </div>
                                 <div class="d-col">
                                     <div class="d-title">Phone</div>
-                                    <div class="d-content id-color">+1 333 8080 1000</div>
+                                    <div class="d-content id-color">+974 4140 7282</div>
                                 </div>
                                 <div class="d-col">
                                     <div class="d-title">Email</div>
-                                    <div class="d-content id-color">contact@blaxcut.com</div>
+                                    <div class="d-content id-color">info@theundercut.qa</div>
                                 </div>
                                 <div class="d-deco"></div>
                             </div>
@@ -374,6 +399,19 @@
             </div>
         </footer>
         <!-- footer close -->
+    </div>
+
+    <div class="modal fade" id="servicesModal" tabindex="-1" aria-labelledby="servicesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content dark-scheme">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="images/services/Services.png" alt="All Services and Prices" class="img-fluid rounded shadow">
+            </div>
+            </div>
+        </div>
     </div>
     
     <!-- Javascript Files

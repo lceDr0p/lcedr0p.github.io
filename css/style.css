@@ -335,7 +335,6 @@ header.header-center.scroll-down{
 
 header.header-center #logo-center{
   display: inline-block;
-  padding-top: 40px;
 }
 
 header.header-center #mainmenu{
@@ -3568,7 +3567,7 @@ a.btn-slider:hover {
 
 a.btn-main:hover,
 .btn-main:hover {
-  color: #f2f2f2;
+  color: #000;
   -webkit-box-shadow: 2px 2px 20px 0px rgba(var(--primary-color-rgb), 0.5);
   -moz-box-shadow: 2px 2px 20px 0px rgba(var(--primary-color-rgb), 0.5);
   box-shadow: 2px 2px 20px 0px rgba(var(--primary-color-rgb), 0.5);
@@ -3592,9 +3591,12 @@ a.btn-dark.btn-id {
 }
 
 .btn-main.btn-small {
-  padding: 5px 20px 5px 20px;
+  display: inline-block;
   font-weight: bold;
+  text-align: center;
   text-transform: uppercase;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 .btn-fx.btn-main {
@@ -3651,12 +3653,12 @@ a.btn-line,
   text-align: center;
   color: #000;
   outline: 0;
-  font-weight: 800;
+  font-weight: 500;
   text-decoration: none;
-  padding: 2px 20px 2px 20px;
-  font-size: 14px;
+  padding: 16px 20px 8px 25px;
+  font-size: 35px;
   border: none;
-  letter-spacing: .35em;
+  letter-spacing: .20em;
 }
 
 a.btn-main img {
@@ -17227,7 +17229,7 @@ img {
   .container-md,
   .container-sm,
   .container-xl {
-    max-width: 1300px;
+    max-width: 1600px;
   }
 }
 
@@ -18499,4 +18501,16 @@ img {
 
 #de-carousel .s1 {
   color: #adadad !important;
+}
+
+.modal-content.dark-scheme {
+    background: #101010; /* match your dark theme */
+    color: #f2f2f2;
+    border-radius: 12px;
+}
+
+.modal-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
