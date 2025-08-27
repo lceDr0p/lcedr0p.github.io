@@ -3937,6 +3937,13 @@ a.btn-link {
 
 /* ------------------------------ */
 
+.spacer-quarter {
+  width: 100%;
+  height: 26px;
+  display: block;
+  clear: both;
+}
+
 .spacer-single {
   width: 100%;
   height: 30px;
